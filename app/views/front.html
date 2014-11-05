@@ -1,0 +1,22 @@
+<div class="page-header">
+	<h2>Store Front</h2>
+</div>
+
+<div class="row">
+	<div class="col-sm-4" ng-repeat="item in items">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				
+				<h3>{{item.name}}</h3>
+				
+				<span class="text-success">{{item.price | currency}}</span>
+				
+				<span class="label label-success pull-right" ng-if="item.condition == 'new'">{{item.condition}}</span>
+				<span class="label label-warning pull-right" ng-if="item.condition == 'like-new'">{{item.condition}}</span>
+				<span class="label label-danger pull-right" ng-if="item.condition == 'gently-used'">{{item.condition}}</span>				
+				
+			</div>
+		</div>
+	</div>
+</div>
+

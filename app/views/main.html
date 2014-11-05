@@ -1,0 +1,72 @@
+<div class="page-header">
+	<h2>Admin</h2>
+</div>
+<p>Adding an item here will add the item to the <a href="#/front">store front</a> in real time.</p>
+
+<br />
+<form class="form-inline" role="form" ng-submit="addItem()">
+	<div class="form-group">
+		<input type="text" class="form-control" placeholder="Enter item name"
+			required="required" ng-model="newItem.name">
+	</div>
+	<div class="form-group">
+		<div class="input-group">
+			<div class="input-group-addon">$</div>
+			<input class="form-control" type="number" placeholder="Enter Price"
+				required="required" ng-model="newItem.price">
+		</div>
+	</div>
+	<div class="form-group">
+		<select class="form-control" required="required"
+			ng-model="newItem.color">
+			<option value="">-- Select Color --</option>
+			<option value="red">Red</option>
+			<option value="green">Green</option>
+			<option value="blue">Blue</option>
+			<option value="black">Black</option>
+			<option value="white">White</option>
+		</select>
+	</div>
+	<div class="form-group">
+		<select class="form-control" required="required"
+			ng-model="newItem.condition">
+			<option value="">-- Select Condition --</option>
+			<option value="new">New</option>
+			<option value="like-new">Like New</option>
+			<option value="gently-used">Gently Used</option>
+		</select>
+	</div>
+	<button type="submit" class="btn btn-primary">
+		<span class="glyphicon glyphicon-plus"></span> Add Item
+	</button>
+</form>
+<br />
+<div class="well" ng-hide="items.length">No items found</div>
+<div class="row">
+	<div class="col-sm-12">
+		<table class="table table-hover table-striped table-condensed" ng-show="items.length">
+			<colgroup>
+				<col span="1" style="width: 60%;">
+				<col span="1" style="width: 10%;">
+				<col span="1" style="width: 10%;">
+				<col span="1" style="width: 10%;">
+			</colgroup>
+			<thead>
+				<tr>
+					<th><a href="" ng-click="predicate = 'name'; reverse=!reverse">Name</a></th>
+					<th><a href="" ng-click="predicate = 'price'; reverse=!reverse">Price</a></th>
+					<th><a href="" ng-click="predicate = 'color'; reverse=!reverse">Color</a></th>
+					<th><a href="" ng-click="predicate = 'condition'; reverse=!reverse">Condition</a></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in items | orderBy:predicate:reverse">
+					<td>{{item.name}}</td>
+					<td><span class="text-success">{{item.price | currency}}</span></td>
+					<td>{{item.color}}</td>
+					<td>{{item.condition}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>	
+</div>
