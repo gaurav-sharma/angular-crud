@@ -8,6 +8,8 @@ Description
 
 This a single page application. It uses AngularJs and Firebase for the backend. So, the items added will be stored in Firebase. 
 
+All the relevant code is in the app folder. Everything else is for Yeoman to do it's thing. 
+
 Features
 ========
 
